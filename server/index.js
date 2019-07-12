@@ -12,6 +12,16 @@ massive(process.env.CONNECTION_STRING)
     app.set("db", db);
 })
 
+app.get('/api/students', (req, res, next) => {
+    const db = req.app.get('db');
+    db.get_all_products().then(products => {
+        res.status(200).send(products)
+        .catch(err => {
+            res.status(404).send(err)
+        });
+    });
+});
+
 const port = 4000;
 app.listen(port, () => {
     console.log(`Server up and 💃 on ${port}`)
