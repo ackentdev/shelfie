@@ -8,9 +8,9 @@ export default class Dashboard extends Component {
 
     deletePost(id){
         axios.delete(`/api/product/${id}`)
-        .then(() => {
-            this.props.getInventory();
+        .then(() => {  
         })
+        this.props.getInventory();
     }
 
     render() {
