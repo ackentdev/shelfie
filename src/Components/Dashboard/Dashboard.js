@@ -5,10 +5,16 @@ import Product from "../Product/Product"
 
 export default class Dashboard extends Component {
     render() {
+        const mappedInventory = this.props.inventory.map(product => {
+            return (
+                <div key={this.props.inventory.indexOf(product)}>
+                    <Product product={product}/>
+                </div>
+            );
+        });
         return(
             <div>
-                <span>Dashboard</span>
-                <Product/>
+                {mappedInventory}
             </div>
         )
     };
