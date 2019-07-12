@@ -5,7 +5,7 @@ export default function Product(props) {
     
         return(
             <div className="product-component">
-                <img alt="product-img" src={props.product.img}/>
+                <img className="product-img" alt="product-img" src={props.product.img}/>
                 <div>{props.product.name}</div>
                 <div>{props.product.price}</div>
             </div>

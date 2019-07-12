@@ -4,7 +4,7 @@ const massive = require('massive');
 const app = express();
 app.use(express.json());
 
-const { getThisBread } = require('./controller');
+const { getThisBread, postThatShit, deleteThatShit } = require('./controller');
 
 massive(process.env.CONNECTION_STRING)
 .then(db => {
@@ -13,6 +13,10 @@ massive(process.env.CONNECTION_STRING)
 })
 
 app.get('/api/inventory', getThisBread);
+
+app.post('/api/product', postThatShit);
+
+app.delete('/api/product/:id', deleteThatShit)
 
 const port = 4000;
 app.listen(port, () => {
